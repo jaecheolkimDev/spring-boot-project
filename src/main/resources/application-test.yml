@@ -4,15 +4,15 @@ spring:
 
   # MySQL 설정
   datasource:
-    url: jdbc:mysql://localhost:3306/springbook
-    username: spring
-    password: book
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:h2:mem:test
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+#    url: jdbc:mysql://localhost:3306/springbook
+#    username: spring
+#    password: book
+#    driver-class-name: com.mysql.cj.jdbc.Driver
   # H2 설정 (테스트용, 필요시 활성화-위에꺼 주석해야함)
-#      url: jdbc:h2:mem:testdb
-#      driverClassName: org.h2.Driver
-#      username: sa
-#      password:
 
   # JPA 설정
   jpa:
@@ -23,7 +23,6 @@ spring:
       hibernate:
         format_sql: true  # 콘솔창에 출력되는 쿼리를 가독성이 좋게 포맷팅
         show_sql: true    # 실행되는 쿼리 콘솔 출력
-    database-platform: org.hibernate.dialect.H2Dialect
 
   # H2 콘솔 설정
   h2:
@@ -33,21 +32,25 @@ spring:
 
   mail:
     host: smtp.gmail.com
-    post: 587
+    port: 587
     username: jcdoom@naver.com
     password: password
     properties:
       mail:
         smtp:
           auth: true
-          starttles:
+          starttls:
             enable: true
 
 # Swagger 설정
 springdoc:
+  api-docs:
+    enabled: false
   default-consume-media-type: application/json
   default-produce-media-type: application/json
   swagger-ui:
+    enabled: false
     path: /swagger-ui.html       # 접속 경로 변경
     groups-order: DESC           # 그룹 정렬 순서
-    operations-sorter: method    # HTTP 메서드순 정렬
+    operations-sorter: METHOD    # HTTP 메서드순 정렬
+    tags-sorter: ALPHA         # 태그 정렬이 필요하다면 추가

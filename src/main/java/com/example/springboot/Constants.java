@@ -1,4 +1,4 @@
-package com.example.springoftobyboot;
+package com.example.springboot;
 
 public class Constants {
     /**

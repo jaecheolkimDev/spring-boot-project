@@ -1,18 +1,16 @@
-package com.example.springoftobyboot;
+package com.example.springboot;
 
-import com.example.springoftobyboot.entity.UserEntity;
-import com.example.springoftobyboot.repository.UserRepository;
-import com.example.springoftobyboot.service.UserService;
+import com.example.springboot.entity.MemberEntity;
+import com.example.springboot.repository.MemberRepository;
+import com.example.springboot.service.UserService;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.Optional;
 
@@ -27,7 +25,7 @@ public class UserServiceTest {
     @Autowired
     private UserService userService;
     @Autowired
-    private UserRepository userRepository;
+    private MemberRepository memberRepository;
     @BeforeEach
     void setup() {
         System.out.println("테스트 시작 전 준비");
@@ -41,9 +39,9 @@ public class UserServiceTest {
     @Test
     public void saveUserTest() {
         // 테스트 코드 작성
-        UserEntity user1 = userService.saveUser("testUser", "testPassword");
+        MemberEntity user1 = userService.saveUser("testUser", "testPassword");
 
-        Optional<UserEntity> user2 = userRepository.findById(user1.getId());
+        Optional<MemberEntity> user2 = memberRepository.findById(user1.getId());
         Assertions.assertEquals(user2.get().getName(), "testUser");
         Assertions.assertEquals(user2.get().getPassword(), "testPassword");
 

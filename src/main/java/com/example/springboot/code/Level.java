@@ -1,4 +1,4 @@
-package com.example.springoftobyboot.code;
+package com.example.springboot.code;
 
 public enum Level {
     GOLD(3, null), SILVER(2, GOLD), BASIC(1, SILVER);

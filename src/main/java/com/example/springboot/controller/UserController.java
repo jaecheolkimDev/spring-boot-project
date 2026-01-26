@@ -1,6 +1,6 @@
-package com.example.springoftobyboot.controller;
+package com.example.springboot.controller;
 
-import com.example.springoftobyboot.entity.UserEntity;
+import com.example.springboot.entity.MemberEntity;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import com.example.springoftobyboot.service.UserService;
+import com.example.springboot.service.UserService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -23,10 +23,10 @@ public class UserController {
     @Operation(summary = "유저 정보 저장", description = "유저 정보를 저장합니다.")     // Swagger API 메서드 단위 설명
     @Parameter(name = "request", description = "Map<String, Object>")
     @PostMapping("/saveUser")
-    public ResponseEntity<UserEntity> saveUser(@RequestBody Map<String, Object> request) {
+    public ResponseEntity<MemberEntity> saveUser(@RequestBody Map<String, Object> request) {
         String name = (String)request.get("name");
         String password = (String)request.get("password");
-        UserEntity userEntity = userService.saveUser(name, password);
+        MemberEntity userEntity = userService.saveUser(name, password);
         // 정상일 때만 200 OK
         return new ResponseEntity<>(userEntity, HttpStatus.OK);
     }

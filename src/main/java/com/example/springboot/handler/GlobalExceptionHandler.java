@@ -1,4 +1,4 @@
-package com.example.springoftobyboot.handler;
+package com.example.springboot.handler;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
