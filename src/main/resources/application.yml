@@ -1,6 +1,6 @@
 spring:
   application:
-    name: spring-of-toby-boot
+    name: spring-boot-project
 
   # MySQL 설정
   datasource:
@@ -23,7 +23,7 @@ spring:
       hibernate:
         format_sql: true  # 콘솔창에 출력되는 쿼리를 가독성이 좋게 포맷팅
         show_sql: true    # 실행되는 쿼리 콘솔 출력
-    database-platform: org.hibernate.dialect.H2Dialect
+    open-in-view: true    # true로 경고만 없애기 (추후 - 지연 로딩 처리를 서비스 레이어 안에서 다 해결하기)
 
   # H2 콘솔 설정
   h2:
@@ -43,6 +43,15 @@ spring:
           starttles:
             enable: true
 
+  # spring-boot-devtools
+  devtools:
+    livereload:
+      enabled: true # Live Reload 적용
+
+  # thymeleaf
+  thymeleaf:
+    cache: false    # cache 사용 중지
+
 # Swagger 설정
 springdoc:
   default-consume-media-type: application/json
@@ -51,3 +60,15 @@ springdoc:
     path: /swagger-ui.html       # 접속 경로 변경
     groups-order: DESC           # 그룹 정렬 순서
     operations-sorter: method    # HTTP 메서드순 정렬
+
+logging:
+  level:
+    org:
+      springframework:
+        web: DEBUG
+      thymeleaf: DEBUG
+
+server:
+  error:
+    include-message: always
+    include-stacktrace: always

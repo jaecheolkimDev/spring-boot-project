@@ -1,6 +1,6 @@
 spring:
   application:
-    name: spring-of-toby-boot
+    name: spring-boot-project
 
   # MySQL 설정
   datasource:

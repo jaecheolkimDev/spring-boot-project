@@ -1,5 +1,21 @@
-# 🍃 토비의 스프링 학습 프로젝트
-> **토비의 스프링**의 핵심 원리를 **Spring Boot 3.4.1**, **JPA**, **MySQL** 환경에서 실습하며 학습하는 프로젝트입니다.
+# 🍃 스프링 학습 프로젝트
+> **스프링**의 핵심 원리를 적용해서 학습하는 프로젝트입니다.
+
+---
+
+## 📝 학습 기록
+```
+[o] Swagger
+[o] Security
+[o] JPA
+[o] MySql
+[o] thymeleaf
+[o] 테스트 코드 작성법
+[o] 예외 처리 전략
+[ ] 오브젝트와 의존관계 (IoC, DI)
+[ ] 템플릿과 콜백
+[ ] 서비스 추상화 및 트랜잭션 (AOP)
+```
 
 ---
 
@@ -21,12 +37,15 @@
 ```text
 ├── src
 │   ├── main
-│   │   ├── java         # 백엔드 비즈니스 로직
-│   │   └── resources    # 설정 파일 (application.yml, SQL 등)
+│   │   ├── java            # 백엔드 비즈니스 로직
+│   │   └── resources       # 설정 파일 (application.yml, SQL 등)
+│   │       └── static
+│   │           └── css     # css 파일
+│   │       └── templates   # thymeleaf 파일
 │   └── test
-│       └── java         # 단위 및 통합 테스트 코드
-├── docs                 # API 명세서 및 학습 정리 문서
-└── pom.xml              # Maven 의존성 관리
+│       └── java            # 단위 및 통합 테스트 코드
+├── docs                    # API 명세서 및 학습 정리 문서
+└── pom.xml                 # Maven 의존성 관리
 ```
 ---
 
@@ -82,14 +101,4 @@ ALTER TABLE springbook.user ADD email varchar(100) NOT NULL;
  - MySQL Connector Java: MySQL 연동
  - Springdoc OpenAPI Starter: API 문서 자동화
  - Spring Boot Starter Security: (필요 시) 보안 및 인증 관리
-```
-
-
-## 📝 학습 기록
-```
-[ ] 오브젝트와 의존관계 (IoC, DI)
-[ ] 테스트 코드 작성법
-[ ] 템플릿과 콜백
-[ ] 예외 처리 전략
-[ ] 서비스 추상화 및 트랜잭션 (AOP)
 ```
