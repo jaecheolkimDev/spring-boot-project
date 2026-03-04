@@ -7,7 +7,7 @@ name: Github Actions 실행시켜보기
 on:
   push:
     branches:
-      - main
+      - master
 
 # 하나의 Workflow는 1개 이상의 Job으로 구성된다.
 # 여러 Job은 기본적으로 병렬적으로 수행된다.
