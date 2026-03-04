@@ -1,4 +1,4 @@
-# DB설정이 되있을때 MySQL을 사용해서 서버 기동시키기 위함
+# DB설정이 안되있을때 메모리DB를 통해 서버 기동시키기 위함
 
 spring:
   application:
@@ -6,21 +6,22 @@ spring:
 
   # MySQL 설정
   datasource:
-    url: jdbc:mysql://localhost:3306/springbook
-    username: spring
-    password: book
-    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/springbook
+#    username: spring
+#    password: book
+#    driver-class-name: com.mysql.cj.jdbc.Driver
   # H2 설정 (테스트용, 필요시 활성화-위에꺼 주석해야함)
-#      url: jdbc:h2:mem:testdb
-#      driverClassName: org.h2.Driver
-#      username: sa
-#      password:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;MODE=MySQL
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
 
   # JPA 설정
   jpa:
     hibernate:
       ddl-auto: create  # 데이터베이스 초기화 전략(none, create, create-drop, update, validate)
     show-sql: true
+    database-platform: org.hibernate.dialect.H2Dialect # H2 전용 방언 사용 권장
     properties:
       hibernate:
         format_sql: true  # 콘솔창에 출력되는 쿼리를 가독성이 좋게 포맷팅
@@ -80,3 +81,4 @@ server:
   error:
     include-message: always
     include-stacktrace: always
+  port: 8082  # 8080 대신 8082 사용
