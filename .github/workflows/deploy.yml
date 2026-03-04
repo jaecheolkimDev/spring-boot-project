@@ -3,7 +3,7 @@
 name: Github Actions 실행시켜보기
 
 # Event : 실행되는 시점을 설정
-# main이라는 브랜치에 push 될 때 아래 Workflow를 실행
+# master이라는 브랜치에 push 될 때 아래 Workflow를 실행
 on:
   push:
     branches:
@@ -29,13 +29,13 @@ jobs:
           echo "Morning"
           
           
-            # 참고: https://docs.github.com/en/actions/learn-github-actions/variables
+      # 참고: https://docs.github.com/en/actions/learn-github-actions/variables
       - name: Github Actions 자체에 저장되어 있는 변수 사용해보기
         run: |
           echo $GITHUB_SHA
           echo $GITHUB_REPOSITORY
-          
-            - name: Github Actions Secret 변수 사용해보기
-                run: |
-                    echo ${{ secrets.MY_NAME }}
-                    echo ${{ secrets.MY_HOBBY }}
+
+      - name: Github Actions Secret 변수 사용해보기
+        run: |
+            echo ${{ secrets.MY_NAME }}
+            echo ${{ secrets.MY_HOBBY }}
