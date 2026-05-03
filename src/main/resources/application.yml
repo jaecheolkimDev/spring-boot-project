@@ -80,3 +80,9 @@ server:
   error:
     include-message: always
     include-stacktrace: always
+
+# jwt 토큰을 만들려면 issuer와 secret_key 필수로 설정해야 한다.
+jwt:
+  issuer: ajufresh@gmail.com    # 이슈 발급자
+  # HS256 알고리즘을 쓰려면 최소 256비트(32바이트)가 필요해!
+  secret-key: your-very-long-and-secure-secret-key-32characters-minimum-abc123  # 비밀키

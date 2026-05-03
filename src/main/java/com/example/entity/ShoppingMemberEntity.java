@@ -3,6 +3,7 @@ package com.example.entity;
 import com.example.code.Role;
 import com.example.dto.MemberFormDto;
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -31,6 +32,14 @@ public class ShoppingMemberEntity extends ShoppingBaseEntity {
 
     @Enumerated(EnumType.STRING)
     private Role role;
+
+    public ShoppingMemberEntity() {
+    }
+    @Builder
+    public ShoppingMemberEntity(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
 
     public static ShoppingMemberEntity createMember(MemberFormDto memberFormDto, PasswordEncoder passwordEncoder) {
         ShoppingMemberEntity member = new ShoppingMemberEntity();
